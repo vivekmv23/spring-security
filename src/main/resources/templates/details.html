@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shopping</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="card m-5 pb-5 bg-info shadow p-4 mb-4 bg-white center">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${item.itemName}"></h5>
+            <a> Details :<p class="card-text" th:text="${item.itemDescription}"></p></a>
+            <a> Price :<p class="card-text text-success" th:text="${item.itemPrice} + ' Rs'"></p></a>
+            <a> Seller :<p class="card-text" th:text="${item.sellerName}"></p></a>
+            <a> Seller Contact :<p class="card-text" th:text="${item.sellerEmail}"></p></a>
+
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
