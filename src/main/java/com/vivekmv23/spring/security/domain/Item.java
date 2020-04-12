@@ -2,6 +2,8 @@ package com.vivekmv23.spring.security.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,6 +12,7 @@ import javax.persistence.Table;
 public class Item {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ITEM_ID")
     private long id;
 
@@ -20,7 +23,7 @@ public class Item {
     private String itemDescription;
 
     @Column(name = "ITEM_PRICE")
-    private float itemPrice;
+    private int itemPrice;
 
     @Column(name = "SELLER_NAME")
     private String sellerName;
@@ -52,11 +55,11 @@ public class Item {
         this.itemDescription = itemDescription;
     }
 
-    public float getItemPrice() {
+    public int getItemPrice() {
         return itemPrice;
     }
 
-    public void setItemPrice(float itemPrice) {
+    public void setItemPrice(int itemPrice) {
         this.itemPrice = itemPrice;
     }
 
