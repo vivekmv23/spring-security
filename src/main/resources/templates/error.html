@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error</title>
+</head>
+<body>
+
+<div layout:fragment="content" class="container">
+    <div class="card m-5 pb-5 bg-info shadow p-4 mb-4 bg-white">
+        <div class="card-body">
+            <h5 class="card-title text-danger" th:text="${error}"></h5>
+            <p class="card-text text-warning" th:text="'Status code: '+ ${status}"></p>
+            <a class="btn btn-info" th:href="@{/}">Back To Home Page</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

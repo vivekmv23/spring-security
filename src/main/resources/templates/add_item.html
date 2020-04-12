@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Item</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="card m-5 pb-5 bg-info shadow p-4 mb-4 bg-white">
+        <form action="#" th:action="${isUpdate} ? @{/item/update} : @{/item/add}" th:object="${item}" method="post">
+            <div class="form-group">
+                <input class="form-control" type="hidden" id="id" th:field="*{id}">
+            </div>
+            <div class="form-group">
+                <label for="itemName">Item Name</label>
+                <input type="text" class="form-control" id="itemName" th:field="*{itemName}">
+            </div>
+            <div class="form-group">
+                <label for="itemDescription">Item Description</label>
+                <input type="text" class="form-control" id="itemDescription" th:field="*{itemDescription}">
+            </div>
+            <div class="form-group">
+                <label for="itemPrice">Item Price</label>
+                <input type="number" class="form-control" id="itemPrice" th:field="*{itemPrice}">
+            </div>
+            <div class="form-group">
+                <label for="sellerName">Seller Name</label>
+                <input type="text" class="form-control" id="sellerName" th:field="*{sellerName}">
+            </div>
+            <div class="form-group">
+                <label for="sellerEmail">Seller Email</label>
+                <input type="email" class="form-control" id="sellerEmail" th:field="*{sellerEmail}">
+            </div>
+            <button type="submit" class="btn btn-primary"><span th:text="${isUpdate} ? Update : Add"/></button>
+        </form>
+    </div>
+</div>
+</div>
+</body>
+</html>

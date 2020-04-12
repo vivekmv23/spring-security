@@ -2,7 +2,6 @@ package com.vivekmv23.spring.security.service;
 
 import com.vivekmv23.spring.security.dao.ItemRepository;
 import com.vivekmv23.spring.security.domain.Item;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,7 +11,6 @@ public class ItemManagerServiceImpl implements ItemManagerService {
 
     private ItemRepository itemRepository;
 
-    @Autowired
     public ItemManagerServiceImpl(ItemRepository itemRepository) {
         this.itemRepository = itemRepository;
     }
@@ -28,8 +26,8 @@ public class ItemManagerServiceImpl implements ItemManagerService {
     }
 
     @Override
-    public Item editItem(Item item) {
-        return itemRepository.updateAnItem(item);
+    public Item editItem(Item itemToUpdate) {
+        return itemRepository.updateAnItem(itemToUpdate);
     }
 
     @Override

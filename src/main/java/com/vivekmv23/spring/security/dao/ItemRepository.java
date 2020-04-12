@@ -2,10 +2,10 @@ package com.vivekmv23.spring.security.dao;
 
 import com.vivekmv23.spring.security.domain.Item;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -27,18 +27,17 @@ public class ItemRepository {
         return true;
     }
 
+    @Transactional
+    public Item updateAnItem(Item itemToUpdate){
+        entityManager.merge(itemToUpdate);
+        return itemToUpdate;
+    }
+
     public Item selectFromItem(long itemId){
-        entityManager.getTransaction().begin();
         return entityManager.find(Item.class, itemId);
     }
 
-    @Transactional
-    public Item updateAnItem(Item item){
-        entityManager.merge(item);
-        return item;
-    }
-
     public List<Item> selectAllItem(){
-        return entityManager.createQuery("select item from Item item", Item.class).getResultList();
+        return entityManager.createQuery("from Item", Item.class).getResultList();
     }
 }
